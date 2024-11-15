@@ -1,5 +1,6 @@
 import React from "react";
 import {FaRegEye, FaShareAlt} from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const NewsCard = ({singleNews}) => {
   return (
@@ -27,8 +28,10 @@ const NewsCard = ({singleNews}) => {
         alt=""
       />
       <p className="text-gray-700 text-sm mb-4">
-        {singleNews.details.slice(0, 150)}
-        <span>Read More</span>
+        {singleNews.details.slice(0, 150)}...{""}
+        <Link to={`/news/${singleNews._id}`} className="text-primary">
+          Read More
+        </Link>
       </p>
       <div className="flex items-center">
         <FaRegEye className="mr-1"></FaRegEye>
