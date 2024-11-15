@@ -7,7 +7,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // get the from data
+    // get the from data 1st way to get
     const form = new FormData(e.target);
     const name = form.get("name");
     const photo = form.get("photo");
