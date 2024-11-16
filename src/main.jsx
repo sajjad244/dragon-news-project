@@ -9,6 +9,7 @@ import Login from "./components/Pages/Login";
 import Register from "./components/Pages/Register";
 import AuthProvider from "./provider/AuthProvider";
 import NewsDetails from "./components/Pages/NewsDetails";
+import PrivetRoute from "./routes/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/news/:id",
-    element: <NewsDetails></NewsDetails>,
+    element: (
+      <PrivetRoute>
+        <NewsDetails></NewsDetails>
+      </PrivetRoute>
+    ),
     loader: ({params}) =>
       fetch(`https://openapi.programming-hero.com/api/news/${params.id}`),
   },
